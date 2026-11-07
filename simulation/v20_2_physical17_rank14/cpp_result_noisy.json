@@ -1,0 +1,43 @@
+{
+  "version": "20.2-single-sphere17-rank14",
+  "success": true,
+  "model": "single_sphere_physical17_rank14",
+  "gauge_description": "Full 17-parameter physical model. Single-sphere data identify only 14 independent physical combinations after eliminating the unknown sphere center. The supplied hand-eye translation is retained as the 3-D translation-gauge anchor; it is not claimed as data-identified. B/C axis-line offsets are estimated relative to that anchor.",
+  "message": "17 physical parameters are retained; the sphere data provide rank 14/17. Hand-eye translation is the explicit 3-D gauge anchor, while the remaining 14 independent combinations are data-identified.",
+  "parameters": {
+    "Sxy": {"value": 0.000123671196098424, "unit": "rad"},
+    "Sxz": {"value": -9.6148042976722e-05, "unit": "rad"},
+    "Syz": {"value": 6.92080025950104e-05, "unit": "rad"},
+    "C_offset_u": {"value": 0.450108977678574, "unit": "mm"},
+    "C_offset_v": {"value": -0.324310562816354, "unit": "mm"},
+    "C_tilt_x": {"value": 0.000181829083544011, "unit": "rad"},
+    "C_tilt_y": {"value": -0.000124133097880932, "unit": "rad"},
+    "B_offset_u": {"value": -0.379398074960045, "unit": "mm"},
+    "B_offset_v": {"value": 0.269800701385859, "unit": "mm"},
+    "B_tilt_x": {"value": 0.000163959836022299, "unit": "rad"},
+    "B_tilt_z": {"value": -0.000109821950951795, "unit": "rad"},
+    "handeye_rx": {"value": 0.0120519090866847, "unit": "rad"},
+    "handeye_ry": {"value": -0.0179916172333309, "unit": "rad"},
+    "handeye_rz": {"value": 0.00702799706844278, "unit": "rad"},
+    "handeye_tx": {"value": 32, "unit": "mm"},
+    "handeye_ty": {"value": -18, "unit": "mm"},
+    "handeye_tz": {"value": 54, "unit": "mm"}
+  },
+  "handeye_translation_gauge_anchor_mm": [32, -18, 54],
+  "sphere_center_machine_mm": [245.000037990368, -105.004607159036, 164.999970899911],
+  "residual_rms_mm": 0.00231035934145336,
+  "residual_max_abs_mm": 0.0083749888121627,
+  "profile_count": 42,
+  "point_count": 1050,
+  "observability": {
+    "physical_parameter_count": 17,
+    "rank_after_sphere_center_elimination": 14,
+    "expected_rank_after_sphere_center_elimination": 14,
+    "full_state_count": 20,
+    "full_state_rank": 17,
+    "expected_full_state_rank": 17,
+    "nonzero_condition_number": 91916.6969700442,
+    "physical_singular_values": [1219.45602972194, 1001.08307411732, 914.123575861377, 144.006666927106, 2.51392141219176, 1.63961334259935, 1.38564900951991, 0.116059125858214, 0.105432539123325, 0.0598368565559079, 0.0536468944135541, 0.0323720296138481, 0.0242571616473869, 0.0132669696575298, 7.24503975960158e-06, 5.05945045495899e-06, 4.72562875667632e-06],
+    "full_state_singular_values": [3314.35766915716, 2031.26524920488, 1974.25573650189, 962.316692235348, 831.973969919022, 638.728860685886, 143.974567011294, 2.51392127359698, 1.63961331533816, 1.38564896873528, 0.116059125565734, 0.105432538936389, 0.0598368561873266, 0.0536468943890937, 0.032372029552732, 0.0242571616071014, 0.0132669696544421, 7.01769378624503e-06, 4.32762645100201e-06, 2.89308402227695e-06]
+  }
+}
