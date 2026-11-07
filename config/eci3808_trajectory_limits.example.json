@@ -1,0 +1,41 @@
+{
+  "axis_order": "XYZCB",
+  "linear_units": "mm",
+  "rotary_units": "deg",
+  "maximum_velocity": [
+    5,
+    5,
+    5,
+    2,
+    2
+  ],
+  "maximum_acceleration": [
+    25,
+    25,
+    25,
+    20,
+    20
+  ],
+  "maximum_deceleration": [
+    25,
+    25,
+    25,
+    20,
+    20
+  ],
+  "minimum_position": [
+    -150,
+    -119,
+    -35,
+    -90,
+    -90
+  ],
+  "maximum_position": [
+    117,
+    137,
+    56,
+    90,
+    90
+  ],
+  "note": "Values retained from uploaded machine BASIC. These are examples, not a newly verified machine safety configuration. Controller limits are intersected; no UNITS or IO is written."
+}

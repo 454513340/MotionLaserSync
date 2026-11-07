@@ -1,0 +1,13 @@
+{
+  "comment": "示例不是测量数据！不要把 verified 改成 true，除非已通过设备/实际RAW确认传感器field=7报告坐标范围及其Flip约定。",
+  "verified": false,
+  "verificationId": "",
+  "measuringFieldIndex": 7,
+  "flipX": false,
+  "flipZ": true,
+  "xMinMm": 0.0,
+  "xMaxMm": 0.0,
+  "zMinMm": 0.0,
+  "zMaxMm": 0.0,
+  "marginMm": 0.15
+}

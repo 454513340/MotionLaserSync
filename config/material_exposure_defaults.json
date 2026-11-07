@@ -1,0 +1,43 @@
+{
+  "schema": "MotionLaserSync.MaterialExposureLibrary.v1",
+  "applicationVersion": "V27.6.43",
+  "source": "Bundled seed from Natural_Sunny / Alumina ceramic ball 1 exposure sweep supplied for V27.6.43 development",
+  "entries": [
+    {
+      "key": "alumina_ceramic_ball_1|natural_sunny|217010047|mf0|r1280|lp2|refl3|th12.50|t25.0|hz25|pose_x1.3_y-3.4_z40.6_c0.0_b0.0",
+      "material": "Alumina ceramic ball 1",
+      "materialFileSafe": "Alumina_ceramic_ball_1",
+      "lightingCode": "Natural_Sunny",
+      "lightingDisplay": "自然光-晴天",
+      "temperatureC": 25.0,
+      "sensorTypeName": "scanCONTROL 29xx",
+      "sensorSerialNumber": "217010047",
+      "measuringFieldIndex": 0,
+      "resolution": 1280,
+      "laserPower": 2,
+      "reflectionSelect": 3,
+      "thresholdPercent": 12.5,
+      "recommendedExposure_10us": 30,
+      "referenceIdle_10us": 3970,
+      "referenceProfileRateHz": 25,
+      "saturationOnset_10us": 35,
+      "safeCandidateBand_10us": [
+        25,
+        30
+      ],
+      "inferredSaturationCeiling": 875.5,
+      "confidence": "high",
+      "algorithmVersion": "V27.6.43-center-segment-knee-v1",
+      "sourceSessionDirectory": "Natural_Sunny_Alumina_ceramic_ball_1_Temp25.0C_XYZBC_X1.334_Y-3.357_Z40.552_C0.001_B0.000",
+      "updatedUtc": "2026-10-05T00:00:00Z",
+      "sourcePoseXYZBC": {
+        "valid": true,
+        "x": 1.334,
+        "y": -3.357,
+        "z": 40.552,
+        "c": 0.001,
+        "b": 0.0
+      }
+    }
+  ]
+}

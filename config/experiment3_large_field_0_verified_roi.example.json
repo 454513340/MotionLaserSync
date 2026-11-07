@@ -1,0 +1,13 @@
+{
+  "comment": "仅为未验证的格式示例！必须由现场以真实设备+RAW确认X/Z范围与Flip约定；禁止直接把verified设为true。",
+  "verified": false,
+  "verificationId": "",
+  "measuringFieldIndex": 0,
+  "flipX": false,
+  "flipZ": true,
+  "xMinMm": 0.0,
+  "xMaxMm": 0.0,
+  "zMinMm": 0.0,
+  "zMaxMm": 0.0,
+  "marginMm": 0.15
+}
