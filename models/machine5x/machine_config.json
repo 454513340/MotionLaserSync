@@ -1,0 +1,100 @@
+{
+  "unit": "mm",
+  "collision_profile": "outline_componentaware_64581",
+  "kinematics_note": "Outline collision profile. Correct chain: BASE -> X -> Y -> Z -> C -> B -> END_SENSOR. X/Y/Z translate along MCS axes. MCS origin is the B/C-axis intersection. C command positive is negative mathematical rotation about MCS +Z. B command positive is negative mathematical rotation about the B local +Y axis after C. Therefore C motion carries B and END_SENSOR, while B motion leaves C fixed and moves only B and END_SENSOR.",
+  "links": [
+    {
+      "name": "01_BASE",
+      "visual": "visual/01_BASE.ply",
+      "collision": "collision/01_BASE.STL"
+    },
+    {
+      "name": "02_X_AXIS",
+      "visual": "visual/02_X_AXIS.ply",
+      "collision": "collision/02_X_AXIS.STL"
+    },
+    {
+      "name": "03_Y_AXIS",
+      "visual": "visual/03_Y_AXIS.ply",
+      "collision": "collision/03_Y_AXIS.STL"
+    },
+    {
+      "name": "04_Z_AXIS",
+      "visual": "visual/04_Z_AXIS.ply",
+      "collision": "collision/04_Z_AXIS.STL"
+    },
+    {
+      "name": "05_C_AXIS",
+      "visual": "visual/05_C_AXIS.ply",
+      "collision": "collision/05_C_AXIS.STL"
+    },
+    {
+      "name": "06_B_AXIS",
+      "visual": "visual/06_B_AXIS.ply",
+      "collision": "collision/06_B_AXIS.STL"
+    },
+    {
+      "name": "07_END_SENSOR",
+      "visual": "visual/07_END_SENSOR.ply",
+      "collision": "collision/07_END_SENSOR.STL"
+    }
+  ],
+  "ignored_collision_pairs": [
+    [
+      "01_BASE",
+      "02_X_AXIS"
+    ],
+    [
+      "02_X_AXIS",
+      "03_Y_AXIS"
+    ],
+    [
+      "03_Y_AXIS",
+      "04_Z_AXIS"
+    ],
+    [
+      "04_Z_AXIS",
+      "05_C_AXIS"
+    ],
+    [
+      "05_C_AXIS",
+      "06_B_AXIS"
+    ],
+    [
+      "06_B_AXIS",
+      "07_END_SENSOR"
+    ]
+  ],
+  "safety": {
+    "linear_joint_margin_mm": 3.0,
+    "rotary_joint_margin_deg": 3.0,
+    "minimum_static_clearance_mm": 1.0,
+    "transition_linear_step_mm": 0.5,
+    "transition_rotary_step_deg": 0.5,
+    "transition_max_samples": 4000,
+    "study_sphere_clearance_mm": 2.0,
+    "study_sphere_collision_links": [
+      "02_X_AXIS",
+      "03_Y_AXIS",
+      "04_Z_AXIS",
+      "05_C_AXIS",
+      "06_B_AXIS",
+      "07_END_SENSOR"
+    ],
+    "arrival_linear_tolerance_mm": 0.05,
+    "arrival_rotary_tolerance_deg": 0.05
+  },
+  "offline_planning_limits": {
+    "source": "ECI3808 V32.9 field BASIC / config/eci3808_trajectory_limits.example.json",
+    "x_min_mm": -150.0,
+    "x_max_mm": 117.0,
+    "y_min_mm": -119.0,
+    "y_max_mm": 137.0,
+    "z_min_mm": -35.0,
+    "z_max_mm": 56.0,
+    "c_min_deg": -90.0,
+    "c_max_deg": 90.0,
+    "b_min_deg": -90.0,
+    "b_max_deg": 90.0
+  }
+}

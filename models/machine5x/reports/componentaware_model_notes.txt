@@ -1,0 +1,5 @@
+Component-aware contour-preserving collision meshes
+Source: visual PLY LOD25 in MCS/mm.
+Algorithm: split disconnected components; keep components <=180 faces unchanged; simplify larger components independently with vtkQuadricDecimation; volume preservation ON; strong boundary weighting.
+Reason: global decimation can erase small disconnected machine parts. This version preserves each disconnected component.
+WARNING: decimation is not guaranteed conservative (outer envelope). Use safety margin/distance threshold for machine protection.
