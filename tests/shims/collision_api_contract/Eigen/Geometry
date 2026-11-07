@@ -1,0 +1,3 @@
+#pragma once
+#include "Core"
+namespace Eigen { struct Isometry3d {}; }

@@ -1,0 +1,6 @@
+#pragma once
+// Compile-only shim: verifies the bundled CollisionEngine API without FCL/Eigen.
+// Never add this directory to the production application's include paths.
+namespace Eigen {
+struct Vector3d { static Vector3d Zero() { return {}; } };
+}
