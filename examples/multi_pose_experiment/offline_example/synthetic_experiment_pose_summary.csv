@@ -1,0 +1,4 @@
+pose_id,C_deg,B_deg,expected_profiles,scan_groups,profile_pitch_mm,hardware_authorized
+P01,0,0,201,1,0.1,false
+P02,20,10,201,1,0.1,false
+P03,-15,-12,201,1,0.1,false

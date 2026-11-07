@@ -1,0 +1,48 @@
+{
+  "scanner_model": "Micro-Epsilon scanCONTROL 2950-50BL",
+  "hardware_model_source": "User statement; laser scanner screenshot also identifies 2950-50/BL",
+  "capture_settings_source": "User screenshot and user prose 2026-10-17",
+  "laser_power": "standard",
+  "reflection_selection": "largest_area",
+  "profile_threshold_percent": 12.5,
+  "flip_x": false,
+  "flip_z": true,
+  "high_resolution": true,
+  "calibration_enabled": true,
+  "background_suppression_enabled": true,
+  "video_filter_enabled": true,
+  "automatic_exposure_enabled": false,
+  "manual_exposure_display_value": 15,
+  "manual_exposure_unit_as_reported": "10um",
+  "manual_exposure_physical_microseconds": null,
+  "unit_note": "User wrote exposure 15 (10um); do not silently assume 10 µs or turn this into physical seconds until confirmed. Screenshot does not display actual exposure unit or register readback.",
+  "fast_gate_alignment": "right",
+  "mode": "profile",
+  "reflection_width_ui_min_max": [
+    2,
+    256
+  ],
+  "reflection_intensity_ui_min_max": [
+    0,
+    1023
+  ],
+  "firmware_readback_note": "Screenshot explicitly says reflection width/intensity cannot be reliably read back with current SDK/firmware; UI manages written values, not verified effective hardware settings.",
+  "sessions_assumed_same_config": [
+    "02",
+    "04",
+    "05",
+    "06",
+    "03"
+  ],
+  "assumption_not_independently_verified": "Settings shown once, not per-frame firmware readback. Log for each acquisition to verify consistency.",
+  "training_sessions": [
+    "02",
+    "04",
+    "05",
+    "06"
+  ],
+  "holdout_session": "03",
+  "calibration_status": "offline_empirical_only_not_for_M6_hardware",
+  "nominal_exposure_microseconds_if_10us_register_units": 150,
+  "nominal_exposure_evidence": "Project source explicitly labels LLT exposureTime10Us; actual effective firmware setting not independently read back; user typed 10um."
+}

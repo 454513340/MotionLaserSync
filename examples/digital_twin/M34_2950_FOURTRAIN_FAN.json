@@ -1,0 +1,99 @@
+{
+  "model": "V2 virtual indexed fan ray correction, Sensor-X measured in original SCAN",
+  "trained_only_on": [
+    "6061_Alumina_Scan_H1_New_02.m4s1",
+    "6061_Alumina_Scan_H1_New_04.m4s1",
+    "6061_Alumina_Scan_H1_New_05.m4s1",
+    "6061_Alumina_Scan_H1_New_06.m4s1"
+  ],
+  "heldout_only": [],
+  "fan_scale": 0.9912354705975437,
+  "fan_offset_mm": -0.1351746050851859,
+  "trained_z_minmax": [
+    88.754,
+    100.696
+  ],
+  "interpretation": "Empirical projection of index to already-calibrated Sensor-X, not true laser emitter coordinate.",
+  "validation": {
+    "6061_Alumina_Scan_H1_New_02": {
+      "legacy": {
+        "n": 22961,
+        "mae_mm": 0.10875316335307687,
+        "median_error_mm": -0.09638824999999862,
+        "p95_abs_error_mm": 0.2474299999999996,
+        "rmse_mm": 0.13784744566191198
+      },
+      "corrected": {
+        "n": 22961,
+        "mae_mm": 0.017843036068227982,
+        "median_error_mm": 0.01569295204227128,
+        "p95_abs_error_mm": 0.03361758039555873,
+        "rmse_mm": 0.020611332255474835
+      },
+      "raw_sensor_z_mm": [
+        89.338,
+        97.978
+      ]
+    },
+    "6061_Alumina_Scan_H1_New_04": {
+      "legacy": {
+        "n": 22576,
+        "mae_mm": 0.11143064968329197,
+        "median_error_mm": -0.10130375000000003,
+        "p95_abs_error_mm": 0.2506058124999999,
+        "rmse_mm": 0.14115367377295104
+      },
+      "corrected": {
+        "n": 22576,
+        "mae_mm": 0.013840855289799408,
+        "median_error_mm": 0.007342411876052196,
+        "p95_abs_error_mm": 0.02555843376872069,
+        "rmse_mm": 0.01574039337613753
+      },
+      "raw_sensor_z_mm": [
+        88.914,
+        96.304
+      ]
+    },
+    "6061_Alumina_Scan_H1_New_05": {
+      "legacy": {
+        "n": 21027,
+        "mae_mm": 0.13129731530888866,
+        "median_error_mm": -0.1234725000000001,
+        "p95_abs_error_mm": 0.27144299999999966,
+        "rmse_mm": 0.15749012338593155
+      },
+      "corrected": {
+        "n": 21027,
+        "mae_mm": 0.015598863509124695,
+        "median_error_mm": -0.013115609107107018,
+        "p95_abs_error_mm": 0.03505711696685019,
+        "rmse_mm": 0.019998672006887406
+      },
+      "raw_sensor_z_mm": [
+        88.754,
+        89.786
+      ]
+    },
+    "6061_Alumina_Scan_H1_New_06": {
+      "legacy": {
+        "n": 35366,
+        "mae_mm": 0.14465814783973296,
+        "median_error_mm": -0.11254212499999784,
+        "p95_abs_error_mm": 0.3292357500000014,
+        "rmse_mm": 0.18807580944541386
+      },
+      "corrected": {
+        "n": 35366,
+        "mae_mm": 0.02893918054111621,
+        "median_error_mm": 0.002980986286413856,
+        "p95_abs_error_mm": 0.10354749516107287,
+        "rmse_mm": 0.0415582380227279
+      },
+      "raw_sensor_z_mm": [
+        89.704,
+        100.696
+      ]
+    }
+  }
+}

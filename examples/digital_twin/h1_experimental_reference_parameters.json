@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "0.1-real-scan-derived",
+  "purpose": "Offline digital twin initial scan replay / approximate occlusion validation; not a validated physical ray-camera model",
+  "sources": {
+    "scan": "6061_Alumina_Scan_H1.scan",
+    "scanSha256": "97635e836a8be8a9434c79d1a0d9451bba4e40bd72f0dfc11f5eb8bcabbefc4e",
+    "cad": "传感器连接件.STEP",
+    "cadSha256": "bb99b6bed9948107fdfc6446b9109c9d2b66ec16e9574c2966c37deeca3ae6bd",
+    "sourceCode": "MotionLaserSync_Experiment3_ZExposure_Revised_Source_20261013.zip",
+    "sourceCodeSha256": "12fc0402cdf5b1f858456f9c997047f6621cb191348bbb0d6f17e1372c231b02"
+  },
+  "scanFormat": {
+    "outerVersion": 3,
+    "archivePayloadVersion": 5,
+    "compression": "Qt qCompress/zlib",
+    "crc32OuterHeaderVerified": true,
+    "crc32ArchiveVerified": true,
+    "profileCount": 4598,
+    "profileIndexFirst": 14,
+    "profileIndexLast": 4611,
+    "pointCount": 4762337,
+    "nominalPointsPerProfile": 1280,
+    "retainedSampleFraction": 0.8091726362005219,
+    "invalidReasonsAvailableInThisArchive": false,
+    "hasPerProfile5dPose": true,
+    "timingEnumValue": 4,
+    "absoluteGaugeKnown": false
+  },
+  "motionObserved": {
+    "scanningDirectionAxis": "Machine X negative",
+    "stageXStartMm": 51.993499755859375,
+    "stageXEndMm": -48.69300079345703,
+    "stageXTravelMm": 100.6865005493164,
+    "stageYConstMm": -0.0044999998062849045,
+    "stageZConstMm": -27.672500610351562,
+    "stageCConst": -0.0004978179931640625,
+    "stageBConst": 1.201629638671875e-05,
+    "meanMovementSpeedApproxMmPerSec": 5.00063,
+    "meanStageXdeltaMovingMm": 0.02496636893205413,
+    "medianStageXdeltaMovingMm": 0.025499343872070312,
+    "reportedSampleIntervalUs": 5000,
+    "medianSensorFrameDeltaS": 0.004999755859380173,
+    "measuredSensorProfileFrequencyHz": 200.00976610165353,
+    "medianHostFrameDeltaS": 0.005,
+    "hostNonmonotonicCount": 45,
+    "profileIndicesContiguous": true,
+    "recommendedSimulatorReplayTime": "sensorTime with archived synchronized Frame5D transform"
+  },
+  "cad": {
+    "units": "mm",
+    "dimensionsMm": {
+      "length": 95,
+      "width": 30,
+      "thickness": 10
+    },
+    "boundsCadMm": {
+      "x": [
+        -15,
+        15
+      ],
+      "y": [
+        -55,
+        40
+      ],
+      "z": [
+        0,
+        10
+      ]
+    },
+    "counterbores": [
+      {
+        "cadXYmm": [
+          -7.5,
+          17.5
+        ],
+        "topRadiusMm": 4.0,
+        "topFromZmm": 10.0,
+        "floorZmm": 5.4,
+        "lowerRadiusMm": 2.25,
+        "through": true
+      },
+      {
+        "cadXYmm": [
+          7.5,
+          17.5
+        ],
+        "topRadiusMm": 4.0,
+        "topFromZmm": 10.0,
+        "floorZmm": 5.4,
+        "lowerRadiusMm": 2.25,
+        "through": true
+      },
+      {
+        "cadXYmm": [
+          -7.5,
+          32.5
+        ],
+        "topRadiusMm": 4.0,
+        "topFromZmm": 10.0,
+        "floorZmm": 5.4,
+        "lowerRadiusMm": 2.25,
+        "through": true
+      },
+      {
+        "cadXYmm": [
+          7.5,
+          32.5
+        ],
+        "topRadiusMm": 4.0,
+        "topFromZmm": 10.0,
+        "floorZmm": 5.4,
+        "lowerRadiusMm": 2.25,
+        "through": true
+      }
+    ],
+    "centerHole": {
+      "cadXYmm": [
+        0,
+        -38
+      ],
+      "radiusMm": 2.75,
+      "topChamferMm": 0.5,
+      "chamferAngleDeg": 45
+    },
+    "curvedSlotBoundRadiiMm": [
+      8.9,
+      13.1
+    ]
+  },
+  "registrationApprox": {
+    "type": "2D measured-top-versus-CAD-top raster IoU; Z plane fitted independently, NOT verified 6-DoF precision registration",
+    "cadYawInMachineDeg": -89.226465290544,
+    "cadOriginMachineXYmm": [
+      44.31952322963768,
+      10.236874134371448
+    ],
+    "cadTopPlaneMachineZEquals_aX_bY_c": [
+      0.0030521370520124776,
+      -0.0003993551658041383,
+      -215.18211982944962
+    ],
+    "fitGridMm": 0.16,
+    "topMaskIoU": 0.9856977657531856,
+    "nominalCadOriginMachineZApproxMm": -225.05093871904018,
+    "supportPlaneZEquals_aX_bY_c": [
+      0.002530905617035681,
+      0.0015524497105960933,
+      -225.08850676698736
+    ],
+    "topToSupportDistanceAtMachineX44Y10mm": 9.909803071912734
+  },
+  "sensorModel": {
+    "identity": "Micro-Epsilon scanCONTROL 2950-50/BL",
+    "nominalZrangeMm": [
+      70,
+      120
+    ],
+    "nominalXwidthNearMidFarMm": [
+      42,
+      50,
+      58
+    ],
+    "nativeIndices": 1280,
+    "flipZ": "consistent with FlipZ enabled; not independently embedded as field in .scan",
+    "empiricalIndexToSensorX": {
+      "basis": "i index 0..1279, sensor z in reported mm; linear approximations on observed flat surfaces",
+      "supportZ95p42": "x_sensor_mm approximately 24.577963 - 0.038673198 * i",
+      "topZ105p34": "x_sensor_mm approximately 22.975025 - 0.036083836 * i",
+      "spanOver1279IndicesMm": {
+        "support": 49.463,
+        "top": 46.1512
+      },
+      "globalPolynomialTerms": "x=a0+a1*(i-639.5)+a2*(z-95)+a3*(i-639.5)*(z-95)+a4*(i-639.5)^2+a5*(z-95)^2",
+      "globalPolynomialCoefficients": [
+        -0.13853295,
+        -0.0387803058,
+        0.00495524685,
+        0.000261414514,
+        -6.68319088e-08,
+        -9.79075413e-05
+      ],
+      "globalPolynomialRmsApproxMm": 0.01374,
+      "important": "This is an empirical output X mapping, NOT laser projector/camera intrinsic calibration."
+    },
+    "measuredSensorZPlanesMm": {
+      "topMedian": 105.342,
+      "supportMedian": 95.424,
+      "counterboreFloorMedianApprox": 100.812
+    },
+    "cameraCenterCalibrated": false,
+    "laserEmitterCenterCalibrated": false
+  },
+  "occlusionEquivalentModel": {
+    "status": "empirical only, learned from four 4.6mm-deep counterbores, not a separately calibrated laser/camera two-ray model",
+    "apertureRadiusMm": 4.0,
+    "floorDepthMm": 4.6,
+    "predictedFloorVisibilityModel": "visible if |Pxy - delta| <= apertureRadius; Pxy is local XY in each counterbore, floor annulus area only",
+    "equivalentShiftCADLocalXYmm": [
+      -0.08155604965386187,
+      2.373557529582404
+    ],
+    "equivalentShiftMagnitudeMm": 2.3749582597326775,
+    "equivalentAngleDeg": 27.30709304038605,
+    "floorVisibilityMeasuredMean": 0.5123456790123457,
+    "floorVisibilityPerHoleMeasuredApprox": [
+      0.5148148,
+      0.5117284,
+      0.5191358,
+      0.5037037
+    ],
+    "analysisROI": "CAD annulus radius 2.5..3.78mm, grid spacing 0.125mm, observed if >=2 valid depth-selected points/cell",
+    "binaryGridMismatchMean": 0.03580246913580247,
+    "projectionShiftDirectionToMachine": "CAD +Y corresponds approximately machine +X; actual missing is approximately machine -X side",
+    "identifiabilityWarning": "Cannot infer unique projector and camera rays, physical baseline, radiometric invalidity, or all-depth behavior from single scan. Do not interpret equivalentAngleDeg as physical camera angle."
+  },
+  "simulationRecommendations": {
+    "requiredGeometry": [
+      "import STEP BRep",
+      "place CAD at approx registered machine pose",
+      "include tabletop/support plane at measured support height",
+      "machine+fixture collision meshes"
+    ],
+    "profilesPerSecondFirstVersion": 200.0,
+    "linearScanVelocityMmPerSFirstVersion": 5.0,
+    "samplesPerProfileFirstVersion": 1280,
+    "actualFrameSpacingMmNominal": 0.025,
+    "simulateFirstPassUsingArchived5dFrames": true,
+    "profileValidityMasksAreNotPersisted": "Recreate 1280-slot array and infer absence from missing indices; absent sample reason is not recoverable",
+    "phase1Validation": [
+      "replay actual five-axis trajectory",
+      "CAD top silhouette match",
+      "counterbore floor visible 50-52 percent",
+      "correct native index direction and X resolution"
+    ],
+    "phase2": [
+      "calibrate real optical laser and camera relative geometry",
+      "test both rays against STEP scene",
+      "simulate specular losses/noise as independent model",
+      "automatic multi-view NBV and fusion"
+    ]
+  }
+}

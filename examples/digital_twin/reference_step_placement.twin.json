@@ -1,0 +1,22 @@
+{
+  "format": "MotionLaserSync.DigitalTwinScene",
+  "version": 1,
+  "unit": "mm",
+  "rotationConvention": "Rz*Ry*Rx_degrees",
+  "sourceMode": "STEP",
+  "cadPath": "6061_sensor_connector.step",
+  "poseTruth": {
+    "x": 44.3195, "y": 10.2369, "z": -225.05,
+    "rxDeg": 0, "ryDeg": 0, "rzDeg": -89.2265
+  },
+  "poseEstimate": {
+    "x": 44.3195, "y": 10.2369, "z": -225.05,
+    "rxDeg": 0, "ryDeg": 0, "rzDeg": -89.2265
+  },
+  "idealRegistration": true,
+  "support": {
+    "enabled": true, "z": -225.05, "x": 42,
+    "y": 10, "width": 140, "height": 90
+  },
+  "stepTessellationMm": 0.12
+}
