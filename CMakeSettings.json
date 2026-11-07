@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "name": "x64-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "inheritEnvironments": [
+        "msvc_x64_x64"
+      ],
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\MotionLaserSync_V30\\${workspaceHash}\\build\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\MotionLaserSync_V30\\${workspaceHash}\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_OBJECT_PATH_MAX=200",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "M5X_VCPKG_INSTALLED_ROOT",
+          "value": "D:/m5x/vcpkg_installed",
+          "type": "PATH"
+        },
+        {
+          "name": "TWIN_OCCT_PREFIX",
+          "value": "D:/dev/vcpkg/installed/x64-windows-release",
+          "type": "PATH"
+        }
+      ]
+    }
+  ]
+}
