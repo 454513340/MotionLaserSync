@@ -1,0 +1,134 @@
+' 用户本轮消息中实机已确认 BASIC 的执行语句抄录；仅规范空白和删除原注释。
+BASE(1)
+ATYPE = 1
+UNITS = 4000
+SPEED = 5
+ACCEL = 25
+DECEL = 25
+FASTDEC = 100
+SRAMP = 50
+LSPEED = 0.5
+DATUM_IN =17
+FWD_IN =23
+REV_IN =22
+FS_LIMIT = 117
+RS_LIMIT = -150
+
+BASE(2)
+ATYPE = 1
+UNITS = 4000
+SPEED = 5
+ACCEL = 25
+DECEL = 25
+FASTDEC = 100
+SRAMP = 50
+LSPEED = 0.5
+DATUM_IN =18
+FWD_IN =24
+REV_IN =25
+FS_LIMIT = 137
+RS_LIMIT = -119
+
+BASE(3)
+ATYPE = 1
+UNITS = 4000
+SPEED = 5
+ACCEL = 25
+DECEL = 25
+FASTDEC = 100
+SRAMP = 50
+LSPEED = 0.5
+DATUM_IN =19
+FWD_IN =26
+REV_IN =27
+FS_LIMIT = 56
+RS_LIMIT = -35
+
+BASE(4)
+ATYPE = 4
+UNITS = 1112
+SPEED = 2
+ACCEL = 20
+DECEL = 20
+FASTDEC = 100
+SRAMP = 50
+ENCODER_RATIO(1,-1)
+FS_LIMIT = 90.0
+RS_LIMIT = -90.0
+
+BASE(5)
+ATYPE = 4
+UNITS = 5560
+SPEED = 2
+ACCEL = 20
+DECEL = 20
+FASTDEC = 100
+SRAMP = 50
+ENCODER_RATIO(1,-1)
+FS_LIMIT = 90.0
+RS_LIMIT = -90.0
+
+TSIZE = 1600
+CONST TBL_BASE   = 330
+CONST POINT_DIM  = 3
+CONST DATA_BASE  = TBL_BASE + 10
+GLOBAL g_bufSize
+GLOBAL g_wIndex
+GLOBAL g_period
+GLOBAL g_isrCount
+GLOBAL g_triggerCount
+
+SUB main()
+    g_bufSize = (TSIZE - DATA_BASE) / POINT_DIM
+    g_wIndex  = 0
+    g_period  = 5
+    g_isrCount  = 0
+    g_triggerCount = 0
+    TABLE(TBL_BASE + 0) = g_bufSize
+    TABLE(TBL_BASE + 1) = g_wIndex
+    TABLE(TBL_BASE + 2) = 0
+    TABLE(TBL_BASE + 3) = 0
+    TABLE(TBL_BASE + 4) = 0
+    TABLE(TBL_BASE + 5) = g_isrCount
+    TABLE(TBL_BASE + 6) = g_triggerCount
+    OP(0,OFF)
+    INT_ENABLE = 1
+    TIMER_START(0,g_period)
+    WHILE 1
+        DELAY(1000)
+    WEND
+END SUB
+
+GLOBAL SUB ONTIMER0()
+    TIMER_START(0, g_period)
+    DIM enableFlag
+    DIM rIndex
+    DIM nextIdx
+    DIM baseAddr
+    enableFlag = TABLE(TBL_BASE + 4)
+    IF enableFlag <> 0 THEN
+        OP(0, ON)
+        rIndex = TABLE(TBL_BASE + 2)
+        nextIdx = g_wIndex + 1
+        IF nextIdx >= g_bufSize THEN
+            nextIdx = 0
+        ENDIF
+        IF nextIdx = rIndex THEN
+            TABLE(TBL_BASE + 3) = 1
+        ENDIF
+        baseAddr = DATA_BASE + g_wIndex * POINT_DIM
+        TABLE(baseAddr + 0) = DPOS(1)
+        TABLE(baseAddr + 1) = DPOS(2)
+        TABLE(baseAddr + 2) = DPOS(3)
+        OP(0, OFF)
+    ELSE
+        g_triggerCount = TABLE(TBL_BASE + 6)
+        EXIT SUB
+    ENDIF
+    g_wIndex = nextIdx
+    TABLE(TBL_BASE + 1) = g_wIndex
+    g_isrCount =g_isrCount + 1
+    TABLE(TBL_BASE+5) = g_isrCount
+    g_triggerCount = g_triggerCount + 1
+    TABLE(TBL_BASE + 6) = g_triggerCount
+END SUB

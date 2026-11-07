@@ -1,0 +1,145 @@
+' V19 归档：以用户实机确认的 BASIC 为准，不以旧 V18 包内文件为准。
+' 保留全部执行语句、参数、先后次序和 SUB 入口安排；仅调整注释/空白。
+' 文件名保留历史 ZMC 命名，硬件是 ECI3808。
+' ON/OFF 是输出状态命令，电气有效触发沿由接线及传感器配置决定；
+' 不在源码中假定 ON 必然是电压上升沿，也不假定两个沿都触发曝光。
+' TABLE 仍为 XYZ 三轴 DPOS 顺序记录，未添加 C/B、TriggerID 或硬件锁存。
+
+BASE(1)
+ATYPE = 1
+UNITS = 4000
+SPEED = 5
+ACCEL = 25
+DECEL = 25
+FASTDEC = 100
+SRAMP = 50
+LSPEED = 0.5
+DATUM_IN =17
+FWD_IN =23
+REV_IN =22
+FS_LIMIT = 117
+RS_LIMIT = -150
+
+BASE(2)
+ATYPE = 1
+UNITS = 4000
+SPEED = 5
+ACCEL = 25
+DECEL = 25
+FASTDEC = 100
+SRAMP = 50
+LSPEED = 0.5
+DATUM_IN =18
+FWD_IN =24
+REV_IN =25
+FS_LIMIT = 137
+RS_LIMIT = -119
+
+BASE(3)
+ATYPE = 1
+UNITS = 4000
+SPEED = 5
+ACCEL = 25
+DECEL = 25
+FASTDEC = 100
+SRAMP = 50
+LSPEED = 0.5
+DATUM_IN =19
+FWD_IN =26
+REV_IN =27
+FS_LIMIT = 56
+RS_LIMIT = -35
+
+BASE(4)
+ATYPE = 4
+UNITS = 1112
+SPEED = 2
+ACCEL = 20
+DECEL = 20
+FASTDEC = 100
+SRAMP = 50
+ENCODER_RATIO(1,-1)
+FS_LIMIT = 90.0
+RS_LIMIT = -90.0
+
+BASE(5)
+ATYPE = 4
+UNITS = 5560
+SPEED = 2
+ACCEL = 20
+DECEL = 20
+FASTDEC = 100
+SRAMP = 50
+ENCODER_RATIO(1,-1)
+FS_LIMIT = 90.0
+RS_LIMIT = -90.0
+
+TSIZE = 1600
+CONST TBL_BASE   = 330
+CONST POINT_DIM  = 3
+CONST DATA_BASE  = TBL_BASE + 10
+GLOBAL g_bufSize
+GLOBAL g_wIndex
+GLOBAL g_period
+GLOBAL g_isrCount
+GLOBAL g_triggerCount
+
+SUB main()
+    ' 管理区 330..339，数据区 340..1599：420槽；环形判满保留1槽。
+    g_bufSize = (TSIZE - DATA_BASE) / POINT_DIM
+    g_wIndex  = 0
+    g_period  = 5          ' 名义定时周期ms；不等价于已测得的硬实时保证
+    g_isrCount  = 0
+    g_triggerCount = 0
+    TABLE(TBL_BASE + 0) = g_bufSize
+    TABLE(TBL_BASE + 1) = g_wIndex
+    TABLE(TBL_BASE + 2) = 0
+    TABLE(TBL_BASE + 3) = 0
+    TABLE(TBL_BASE + 4) = 0
+    TABLE(TBL_BASE + 5) = g_isrCount
+    TABLE(TBL_BASE + 6) = g_triggerCount
+    OP(0,OFF)
+    INT_ENABLE = 1
+    TIMER_START(0,g_period)
+    WHILE 1
+        DELAY(1000)
+    WEND
+END SUB
+
+GLOBAL SUB ONTIMER0()
+    ' 保留实机逻辑：每次回调先重启定时器。
+    TIMER_START(0, g_period)
+    DIM enableFlag
+    DIM rIndex
+    DIM nextIdx
+    DIM baseAddr
+    enableFlag = TABLE(TBL_BASE + 4)
+    IF enableFlag <> 0 THEN
+        OP(0, ON)          ' 开始本次输出脉冲命令，随后读取位置
+        rIndex = TABLE(TBL_BASE + 2)
+        nextIdx = g_wIndex + 1
+        IF nextIdx >= g_bufSize THEN
+            nextIdx = 0
+        ENDIF
+        IF nextIdx = rIndex THEN
+            TABLE(TBL_BASE + 3) = 1   ' 锁存溢出；本BASIC继续执行，并非自动停触发
+        ENDIF
+        baseAddr = DATA_BASE + g_wIndex * POINT_DIM
+        ' 顺序读取三轴指令位置，不是同一时刻锁存的编码器反馈。
+        TABLE(baseAddr + 0) = DPOS(1)
+        TABLE(baseAddr + 1) = DPOS(2)
+        TABLE(baseAddr + 2) = DPOS(3)
+        OP(0, OFF)         ' 结束输出脉冲命令，随后发布writeIndex
+    ELSE
+        ' 停用期间同步PC写回的触发计数；EXIT后不累计isrCount。
+        g_triggerCount = TABLE(TBL_BASE + 6)
+        EXIT SUB
+    ENDIF
+    g_wIndex = nextIdx
+    TABLE(TBL_BASE + 1) = g_wIndex
+    ' 仅统计采样使能期间完成的回调。PC每次启动不清零isrCount。
+    g_isrCount =g_isrCount + 1
+    TABLE(TBL_BASE+5) = g_isrCount
+    g_triggerCount = g_triggerCount + 1
+    TABLE(TBL_BASE + 6) = g_triggerCount
+END SUB
