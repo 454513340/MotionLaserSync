@@ -1,0 +1,68 @@
+{
+    "axes": {
+        "Y": {
+            "negative": {
+                "correction_max_mm": 0.007666269938151042,
+                "correction_min_mm": -0.0023320515950520835,
+                "correction_peak_to_peak_mm": 0.009998321533203125,
+                "desired_mpos_max_mm": 93.49466705322266,
+                "desired_mpos_min_mm": -69.50183359781902,
+                "desired_mpos_strictly_monotonic": true,
+                "node_count": 327
+            },
+            "positive": {
+                "correction_max_mm": 0.013000170389811197,
+                "correction_min_mm": 0.005498250325520833,
+                "correction_peak_to_peak_mm": 0.007501920064290364,
+                "desired_mpos_max_mm": 93.49016825358073,
+                "desired_mpos_min_mm": -69.5078353881836,
+                "desired_mpos_strictly_monotonic": true,
+                "node_count": 327
+            }
+        }
+    },
+    "calibration_grid": {
+        "X": {
+            "end_dpos_mm": 111.5,
+            "start_dpos_mm": -147.5,
+            "step_mm": 0.5
+        },
+        "Y": {
+            "end_dpos_mm": 93.5,
+            "start_dpos_mm": -69.5,
+            "step_mm": 0.5
+        },
+        "Z": {
+            "end_dpos_mm": 53.5,
+            "start_dpos_mm": -32.5,
+            "step_mm": 0.5
+        }
+    },
+    "created_utc": "2026-09-23T23:34:48.641Z",
+    "direction_preload_mm": 2,
+    "feedback_source": "linear-axis MPOS / external grating",
+    "format": "MotionLaserSync.AxisPositionCompensationCandidate",
+    "mapping": "desired_mpos_mm -> required_dpos_mm",
+    "motion_profiles": {
+        "Y": {
+            "coarse_p95_post_idle_drift_mm": 0.008923912048339843,
+            "coarse_repeatability_rms_mm": 0,
+            "coarse_speed_mm_s": 5,
+            "final_approach_distance_mm": 2,
+            "precision_final_approach_speed_mm_s": 3,
+            "precision_p95_post_idle_drift_mm": 0.00949859619140625,
+            "precision_repeatability_rms_mm": 0,
+            "qualified": true
+        }
+    },
+    "motion_strategy": "direction-prime-once then monotonic precision sweep: one coarse preload at each direction/cycle start, then all remaining grid nodes are reached monotonically at precision speed",
+    "note": "V27.6.33 uses local speed qualification and direction-prime-once monotonic table sweeps. It still does not enable runtime compensation.",
+    "repeats": 3,
+    "runtime_compensation_enabled": false,
+    "sample_count": 1962,
+    "sampling_strategy": "DPOS grid is absolute; no numerical DPOS-MPOS error accumulation. Long reposition moves are unmeasured and only establish the first directional preload; measured nodes use monotonic precision motion.",
+    "settle_ms": 2000,
+    "software_release": "V27.6.33",
+    "status": "CANDIDATE_UNVALIDATED",
+    "version": 3
+}

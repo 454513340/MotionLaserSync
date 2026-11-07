@@ -1,0 +1,78 @@
+{
+    "axis": "Y",
+    "candidate_sampling_strategy_detected": "direction-prime-once then monotonic precision sweep: one coarse preload at each direction/cycle start, then all remaining grid nodes are reached monotonically at precision speed",
+    "candidate_table": "E:/Projects/MotionLaserSync_v27_6_33_AXIS_COMPENSATION_METHOD_FIX/MotionLaserSync_v27_6_33_AXIS_COMPENSATION_METHOD_FIX/calibration/axis_compensation/axis_comp_candidate_20260923_153448_623/Y_compensation_candidate.csv",
+    "comparison": "RAW: DPOS command = requested MPOS target; COMPENSATED: table interpolation desired MPOS -> required DPOS",
+    "created_utc": "2026-09-24T22:48:03.679Z",
+    "format": "MotionLaserSync.AxisPositionCompensationABValidation",
+    "initial_engineering_target_note": "Informational only: compensated RMS<=0.003 mm, P95<=0.005 mm, max<=0.010 mm. Does not automatically enable runtime compensation.",
+    "meets_initial_engineering_target": true,
+    "mpos_trim_used": false,
+    "runtime_global_compensation_enabled": false,
+    "software_release": "V27.6.34",
+    "summary": {
+        "+": {
+            "COMPENSATED": {
+                "mae_mm": 0.0016148661803039495,
+                "max_abs_mm": 0.0022506716757817458,
+                "mean_error_mm": 0.0015938853583637076,
+                "p95_abs_mm": 0.0022506716757817458,
+                "rms_mm": 0.0017173740780276235,
+                "samples": 24
+            },
+            "RAW": {
+                "mae_mm": 0.008157037162591696,
+                "max_abs_mm": 0.009000003175720028,
+                "mean_error_mm": -0.008157037162591696,
+                "p95_abs_mm": 0.009000003175720028,
+                "rms_mm": 0.008195787799385354,
+                "samples": 24
+            }
+        },
+        "-": {
+            "COMPENSATED": {
+                "mae_mm": 0.0015038027842817308,
+                "max_abs_mm": 0.004499971704467587,
+                "mean_error_mm": -0.0010105942326880297,
+                "p95_abs_mm": 0.004499971704467587,
+                "rms_mm": 0.0018944387831348803,
+                "samples": 24
+            },
+            "RAW": {
+                "mae_mm": 0.0038440102972683112,
+                "max_abs_mm": 0.007333119673830879,
+                "mean_error_mm": -0.0038440102972683112,
+                "p95_abs_mm": 0.007333119673830879,
+                "rms_mm": 0.004430080526717877,
+                "samples": 24
+            }
+        },
+        "ALL": {
+            "COMPENSATED": {
+                "mae_mm": 0.00155933448229284,
+                "max_abs_mm": 0.004499971704467587,
+                "mean_error_mm": 0.00029164556283783893,
+                "p95_abs_mm": 0.00400000794409161,
+                "rms_mm": 0.001808075223397356,
+                "samples": 48
+            },
+            "RAW": {
+                "mae_mm": 0.006000523729930003,
+                "max_abs_mm": 0.009000003175720028,
+                "mean_error_mm": -0.006000523729930003,
+                "p95_abs_mm": 0.009000003175720028,
+                "rms_mm": 0.006587736755736326,
+                "samples": 48
+            }
+        }
+    },
+    "validation_method": "MONOTONIC_SWEEP",
+    "validation_method_auto_recommendation": "MONOTONIC_SWEEP",
+    "validation_motion_profile": {
+        "coarse_speed_mm_s": 5,
+        "final_approach_distance_mm": 2,
+        "precision_final_approach_speed_mm_s": 3
+    },
+    "validation_motion_strategy": "each direction/cycle/mode: one coarse preload PRIME, precision move to first off-grid target, then all remaining off-grid targets reached monotonically with no per-point reverse preload; RAW and COMPENSATED are separate whole sweeps with cycle-wise order alternation",
+    "version": 2
+}
